@@ -104,6 +104,6 @@ history = model.fit(
 )
 
 test_loss, test_accuracy = model.evaluate(test_generator)
-model.save("chest_xray_model.keras")
-model.save("chest_xray_model.h5", save_format="h5")
+model.save("models/chest_xray_model.keras")
+model.save("models/chest_xray_model.h5", save_format="h5")
 print(f"Test Accuracy: {test_accuracy * 100:.2f}%")
