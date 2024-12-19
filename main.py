@@ -5,7 +5,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 
-model = tf.keras.models.load_model("chest_xray_model.h5")
+model = tf.keras.models.load_model("models/chest_xray_model.h5")
 
 labels = ['Atelectasis', 'Cardiomegaly', 'Effusion', 'Infiltration', 'Mass', 'Nodule', 'Pneumonia',
                 'Pneumothorax', 'Consolidation', 'Edema', 'Emphysema', 'Fibrosis', 'Pleural_Thickening',
@@ -33,7 +33,7 @@ def upload_image():
         img_label.config(image=img_tk)
         img_label.image = img_tk
 
-        # Get predictions
+
         predictions = predict_image(file_path)
         result_text.set("Predictions:\n" + "\n".join([f"{label}: {confidence:.2f}" for label, confidence in predictions.items()]))
 
@@ -41,7 +41,7 @@ window = tk.Tk()
 window.title("Chest X-Ray Evaluation")
 window.geometry("900x900")
 
-# Layout
+
 Label(window, text="Chest X-Ray Evaluation Tool", font=("Helvetica", 16)).pack(pady=10)
 img_label = Label(window)
 img_label.pack(pady=10)
